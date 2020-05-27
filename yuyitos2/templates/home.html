@@ -1,0 +1,19 @@
+<!-- templates / home.html --> 
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+   <p>¡Hola <b>{{ user.username }}</b>!</p>
+  <button class="btn btn-primary">
+    <a class="btn1" style="color: white; text-decoration: none;" href="{% url 'logout' %}">Logout</a>
+  </button>
+{% else %}
+  <p>¡Hola, aún no te has identificado!</p>
+  <button class="btn btn-primary">
+    <a class="btn1" style="color: white; text-decoration: none;"    href="{% url 'login' %}">Login</a>
+  </button>  
+{% endif %}
+{% endblock %}
+

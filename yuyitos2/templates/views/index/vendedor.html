@@ -1,0 +1,378 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <title>YUYITOS | Vendedor</title>
+  <link rel="icon" href="{% static '/img/smartsoft1.ico' %}">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static '/css/adminlte.min.css' %}">  
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'css/OverlayScrollbars.min.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-primary navbar-dark">
+     <!-- Left navbar links -->
+     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Notifications Dropdown Menu -->
+      <p>¡Bienvenid@ <b>{{ user.username }}</b>!</p>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>                   
+          <span class="badge badge-warning navbar-badge">7</span>
+        </a>        
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-header">7 Notificaciones</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 Stock crítico
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 nuevos reportes
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-primary">
+          <a class="btn1" style="color: white; text-decoration: none;" href="{% url 'logout' %}">Logout</a>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{% static '/img/logo.jpg' %}" class="img-circle elevation-2" alt="Logo Imagen">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Almacén los YUYITOS</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="http://localhost:8000/vendedor/" class="nav-link active">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Inicio
+              </p>
+            </a>
+          </li>
+          
+          
+          
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8000/vendedorrealizarventa/" class="nav-link">
+                  <p class="p-p">Realizar Venta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8000/vendedorconsultarventa/" class="nav-link">
+                  <p class="p-p">Consultar Venta</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeviewnav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-clock"></i>
+              <p>
+                Clientes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="http://localhost:8000/vendedorcliente/" class="nav-link">
+                  <p class="p-p">Clientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://localhost:8000/vendedorventaalcredito/" class="nav-link">
+                  <p class="p-p">Ventas al Crédito</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Inicio</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Compras del mes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Ventas del día</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cash"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Proveedores</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-stalker"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Productos ingresados</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-archive"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Perecederos</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-calendar"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Vencerán en 30 días</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-ios-timer"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Clientes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-ios-people"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>0</h3>
+
+                <p>Créditos pendientes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-cash"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+            <!-- Custom tabs (Charts with tabs)-->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  Comparativa Ventas y Compras del año 2020
+                </h3>
+                <div class="card-tools">
+                  <ul class="nav nav-pills ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Área</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#sales-chart" data-toggle="tab">Circular</a>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart"
+                       style="position: relative; height: 300px;">
+                      <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                   </div>
+                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>                         
+                  </div>  
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            
+          </section>
+          <!-- /.Left col -->
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      <strong>Versión</strong> 1.0.1
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2020 <a href="">SmartSoft</a>.</strong> Todos los derechos reservados.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery/jquery.min.js' %}"></script>  
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'js/jquery-ui/jquery-ui.min.js' %} "></script> 
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'js/chart.js/Chart.min.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'js/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'js/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'js/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static '/js/adminlte.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static '/js/pages/Inicio.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static '/js/demo.js' %}"></script>
+</body>
+</html>

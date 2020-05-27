@@ -1,0 +1,96 @@
+<!-- templates / base.html --> 
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="{% static '/img/smartsoft1.ico' %}">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>YUYITOS | Iniciar Sesion</title>
+  </head>
+  <body >
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg" style="box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);">
+        <a class="navbar-brand pl-5" href="#"><img src="{% static '/img/smartsoft.png' %}" width="178" height="55" class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav pl-5">
+            <li class="nav-item active">
+              <a class="nav-link"  href="http://localhost:8000/admin">Admin <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: rgb(75, 90, 90);" href="#">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- BODY -->
+      <div class="cuerpo">
+          <div class="row">
+                <div class="col-2">
+
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-7 text">
+                            <h1>Cómo convertir mi idea aplicativa en un negocio <b>REAL</b></h1>
+                            <h3 class="verdecito">Bienvenido a tu sistema de gestión de inventario</h3>
+                            {% block content %}
+                            <form method="post" role="form" id="quickForm" novalidate="novalidate">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="row">
+                                  <div class="form-group col-lg-5 col-md-6 col-sm-12 col-xs-9 mt-3">
+                                    <input type="username" name="username" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+                                  </div>
+                                  <div class="form-group col-lg-4 col-md-6 col-sm-12 col-xs-9 mt-3">
+                                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                  </div>
+                                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-4 mt-3">
+                                    <a href="" type="submit" class="btn btn-primary">Conectar</a>
+                                  </div>
+                                </div>
+                            </form>
+                            {% endblock %}
+                        </div>
+                        <div class="col-lg-5 col-md-9 col-sm-12 imagen card justify-content-center d-flex align-items-center">
+                            <img src="{% static '/img/logo2.png' %}" alt="" width="250">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+
+                </div>
+          </div>
+      </div>
+
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+            <strong>Versión</strong> 1.0.1
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright © 2020 <a href="">SmartSoft</a>.</strong> Todos los derechos reservados.
+      </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+
+    
+  </body>
+</html>

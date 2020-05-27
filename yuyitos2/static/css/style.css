@@ -1,0 +1,56 @@
+body{
+    background-color: rgb(230, 247, 255);
+    font-family: 'Varela', sans-serif;
+}
+
+.navbar{
+    background-color: #FFFFFF;
+}
+
+h1{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2.3rem;
+}
+
+.cuerpo{
+    margin-top: 90px;
+    
+}
+
+.text{
+    padding: 50px;
+}
+.verdecito{
+    color:#28a745;
+    font-size: 1.6rem;
+}
+.card {
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+}
+.imagen{
+    background-color: #fff;
+}
+
+.main-footer {
+    background: #fff;
+    /*border-top: 1px solid #dee2e6;*/
+    color: #869099;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+/** 
+media queries css
+
+
+@media 1280x720{
+    .cuerpo{
+        margin-top: 100px;
+    }
+} **/
